@@ -15,3 +15,60 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+body {
+  font-family: 'Indie Flower', 'Arial', cursive;
+  color:#555555;
+  font-size: 20px;
+  padding-bottom: 20px;
+  min-height: 75rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Berkshire Swash', cursive;
+  font-weight: bold;
+}
+
+.navbar-inverse {
+    background-color: #bceef2;
+    border-color: #555555;
+    border-style: none;
+    padding: 20px 15px;
+}
+
+#navbar {
+  margin-bottom: 20px;
+}
+
+.navbar-brand {
+    float: left;
+    padding: 30px 15px;
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 20px;
+    height: 50px;
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+.btn:hover{
+  background-color: #8defd3;
+  color: white;
+  font-weight: bond;
+}
+
+.drop-down-menu {
+  font-size: 20px;
+}
+
+.divider {
+  border-width: thin;
+  border-color: #555555;
+}
+
+.dropdown-toggle:toggle {
+  background-color: #b5cece;
+  color: white;
+}
