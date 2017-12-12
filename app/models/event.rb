@@ -1,8 +1,6 @@
 class Event < ApplicationRecord
 
-  EVENT_CATEGORIES = [ "Food and Drink", "Travel", "Running", "Book club", "Personal Development", "Coding meet-ups", "Watching Movies", "Language & Culture"]
-
-  event_category =
+  EVENT_CATEGORIES = ["Food and Drink", "Travel", "Running", "Book club", "Personal Development", "Coding meet-ups", "Watching Movies", "Language & Culture"]
 
   belongs_to :user
   has_and_belongs_to_many :categories
@@ -12,6 +10,7 @@ class Event < ApplicationRecord
   validates :description, presence: true, length: { maximum: 500 }
   # validates :ends_after_start
   validates :starts_at, :ends_at, presence: true
+  validates :categories, inclusion: { in: EVENT_CATEGORIES }
 
 
 
