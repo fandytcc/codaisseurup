@@ -15,6 +15,14 @@ class Event < ApplicationRecord
   validates_inclusion_of :includes_food, :in => [true, false]
   validates_inclusion_of :includes_drinks, :in => [true, false]
 
+  def bargain?
+    price < 30
+  end
+
+  def self.order_by_price
+    order :price
+  end
+
 # private
 #   def ends_after_start
 #     return if ends_at.blank? || starts_at.blank?
