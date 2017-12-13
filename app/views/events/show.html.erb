@@ -1,31 +1,37 @@
 <div class="panel panel-primary">
-  <div class="panel-heading"><%= @event.name %></div>
+  <div class="panel-heading">
+    <%= @event.name %>
+    <p><%= @event.description %></p>
+  </div>
 
   <div class="panel-body">
-
+    <!-- Main info -->
     <p>Location: <%= @event.location %></p>
     <p>Host: <%= @event.user.email %></p>
+    <p>Starts at: <%= @event.starts_at.to_formatted_s(:rfc822) %> </p>
+    <p>Ends at: <%= @event.ends_at.to_formatted_s(:rfc822) %></p>
+    <br/>
 
-    <!-- Main Info -->
-    <h4>Main Info</h4>
-    <p>Price: <%= @event.price %></p>
-    <p><%= @event.capacity %> <%= @event.capacity > 1 ? "Capacities" : "Capacity" %></p>
-    <p>Starts at: <%= @event.starts_at %> </p>
-    <p>Ends at: <%= @event.ends_at %></p>
-
-    <!-- About -->
-    <h4>About</h4>
-    <p><%= @event.description %></p>
+    <p>Price: <%= @event.price %> $ </p>
+    <p>Capacity: <%= @event.capacity %> <%= @event.capacity > 1 ? "Capacities" : "Capacity" %> guests</p>
+    <br/>
 
     <!-- Includes.. -->
-    <h4>Includes...</h4>
+    <h4>Amenities</h4>
     <ul class="includes">
       <li><%= !@event.includes_food ? ("<s>Food</s>").html_safe : "Food" %></li>
       <li><%= !@event.includes_drinks ? ("<del>Drinks</del>").html_safe : "Drinks" %></li>
     </ul>
+    <br/>
+    <p>Status: <%= @event.active %></p>
 
+    <!-- Categories -->
+    <h4>Categories</h4>
+    <% @categories.each do |category| %>
+    <span class="label label-success"> <%= category.name %></p>
+    <% end %>
   </div>
 
 </div>
 
-<%= link_to "Back", events_path, class: "btn btn-default" %>
+<%= link_to "BACK", events_path, class: "btn btn-default" %>

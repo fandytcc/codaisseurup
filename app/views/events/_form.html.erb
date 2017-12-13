@@ -1,8 +1,7 @@
 <%= form_for @event do |f| %>
 
-
   <div class="form-group">
-    <label>Event name</label>
+    <label>Event Name</label>
     <%= f.text_field :name, placeholder: "Event name", class: "form-control" %>
   </div>
 
@@ -17,29 +16,10 @@
   </div>
 
   <div class="form-group">
-    <label>Starts at:</label>
-    <%= f.date_select :starts_at, prompt: "Select starting date", class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <label>Ends at:</label>
-    <%= f.date_select :ends_at, prompt: "Select ending date", class: "form-control" %>
-  </div>
-
-  <label>Includes...</label>
-
-  <div class="form-group">
-    <%= f.check_box :includes_food %> Food
-  </div>
-  <div class="form-group">
-    <%= f.check_box :includes_drinks %> Drinks
-  </div>
-
-  <div class="form-group">
     <label>Price</label>
     <div class="input-group">
       <div class="input-group-addon">€</div>
-      <%= f.number_field :price, placeholder: "eg. 100", class: "form-control" %>
+      <%= f.number_field :price, placeholder: "eg. 10.00", class: "form-control" %>
     </div>
   </div>
 
@@ -47,20 +27,56 @@
     <label>Capacity</label>
     <div class="input-group">
       <div class="input-group-addon">€</div>
-      <%= f.number_field :capacity, placeholder: "eg. 30", class: "form-control" %>
+      <%= f.number_field :capacity, placeholder: "eg. 100", class: "form-control" %>
     </div>
   </div>
 
   <div class="form-group">
-    <label>Categories</label>
-    <%= f.select :categories, Event::EVENT_CATEGORIES, id: "category", prompt: "Select event category", class: "form-control" %>
+    <label>Start Date:</label>
+    <%= f.date_select :starts_at, prompt: "Select start date", class: "form-control" %>
   </div>
 
-  <label>Publish this event?</label>
+  <div class="form-group">
+    <label>End Date:</label>
+    <%= f.date_select :ends_at, prompt: "Select end date", class: "form-control" %>
+  </div>
+
+  <hr/>
+  <label>Amenities</label>
+
+  <div class="form-group">
+    <label>Food included: </label>
+    <%= f.radio_button :includes_food, "0" %>
+    <label for="includes_food_true"> YES </label>
+    <%= f.radio_button :includes_food, "1" %>
+    <label for="includes_food_false"> NO </label>
+  </div>
+
+  <div class="form-group">
+    <label>Drinks included: </label>
+    <%= f.radio_button :includes_drinks, "0" %>
+    <label for="includes_drinks_true"> YES </label>
+    <%= f.radio_button :includes_drinks, "1" %>
+    <label for="includes_drinks_false"> NO </label>
+  </div>
+  <hr/>
+
+  <label>Status</label>
 
   <div class="form-group">
     <%= f.check_box :active %> Active
   </div>
+  <hr/>
+
+  <div class="form-group">
+    <label>Categories</label>
+
+    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |b| %>
+      <div class="form-group">
+        <%= b.check_box(class: "check_box") %> <%= b.object.name %>
+      </div>
+    <% end %>
+  <hr/>
 
   <div class="actions">
     <%= f.submit "Save", class: "btn btn-primary" %>

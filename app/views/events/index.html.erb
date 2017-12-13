@@ -5,6 +5,7 @@
       <li class="sidebar-item"><%= link_to "Your Registrations", events_path, class: "sidebar-link" %></li>
     </ul>
   </div>
+
   <div class="col-md-9">
     <div class="panel panel-primary">
       <div class="panel-heading">
@@ -30,8 +31,3 @@
     <%= link_to "+ CREATE NEW EVENT", new_event_path, class: "btn btn-primary" %>
   </div>
 </div>
-
-<h4>Events</h4>
-<% @events.each do |event| %>
-  <span class="label label-success"><%= event.name %></span>
-<% end %>
