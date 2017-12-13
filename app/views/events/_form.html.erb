@@ -1,8 +1,5 @@
 <%= form_for @event do |f| %>
-  <div class="form-group">
-    <label>Event Category</label>
-    <%= f.select :categories, Event::EVENT_CATEGORIES, id: "category", prompt: "Select event category", class: "form-control" %>
-  </div>
+
 
   <div class="form-group">
     <label>Event name</label>
@@ -52,6 +49,11 @@
       <div class="input-group-addon">€</div>
       <%= f.number_field :capacity, placeholder: "eg. 30", class: "form-control" %>
     </div>
+  </div>
+
+  <div class="form-group">
+    <label>Categories</label>
+    <%= f.select :categories, Event::EVENT_CATEGORIES, id: "category", prompt: "Select event category", class: "form-control" %>
   </div>
 
   <label>Publish this event?</label>

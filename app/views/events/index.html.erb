@@ -18,8 +18,8 @@
             <h4><%= event.name %></h4>
           </div>
           <div class="col-md-3 right">
-            <%= link_to "View", event, class: "btn btn-default" %>
-            <%= link_to "Update", edit_event_path(event), class: "btn btn-default" %>
+            <%= link_to "VIEW", event, class: "btn btn-default" %>
+            <%= link_to "UPDATE", edit_event_path(event), class: "btn btn-default" %>
           </div>
         </div>
         <% end %>
@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <%= link_to "Add new event", new_event_path, class: "btn btn-primary" %>
+    <%= link_to "+ CREATE NEW EVENT", new_event_path, class: "btn btn-primary" %>
   </div>
 </div>
 
