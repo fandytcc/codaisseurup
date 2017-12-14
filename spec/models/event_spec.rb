@@ -46,7 +46,7 @@ RSpec.describe Event, type: :model do
       let(:user) { create :user }
 
       it "belongs to a user" do
-        event = user.events.build(:categories)
+        event = user.events.build(:category, name: "Travel")
 
         expect(event.user).to eq(user)
       end
@@ -59,9 +59,9 @@ RSpec.describe Event, type: :model do
     describe "association with category" do
       let(:event) { create :event }
 
-      let!(:category1) { create :category, name: "Bright", events: [event] }
-      let!(:category2) { create :category, name: "Clean lines", events: [event] }
-      let!(:category3) { create :category, name: "A Man's Touch", events: [event] }
+      let!(:category1) { create :category, name: "Travel", events: [event] }
+      let!(:category2) { create :category, name: "Food and Drink", events: [event] }
+      let!(:category3) { create :category, name: "Running", events: [event] }
 
       it "has categories" do
         expect(event.categories).to include(category1)

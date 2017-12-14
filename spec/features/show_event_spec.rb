@@ -16,6 +16,6 @@ describe "Viewing an individual event" do
     expect(page).to have_text(event.starts_at.to_formatted_s(:rfc822))
     expect(page).to have_text(event.ends_at.to_formatted_s(:rfc822))
     expect(page).to have_text(event.description)
-    # expect(page).to have_text(event.category)
+    # expect(page).to have_text(event.categories)
   end
 end
