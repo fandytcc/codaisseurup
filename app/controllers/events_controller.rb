@@ -65,7 +65,7 @@ class EventsController < ApplicationController
   end
 
   def image_params
-    params[:images].present? ? params.require(:image) : []
+    params[:images].present? ? params.require(:images) : []
   end
 
 end
