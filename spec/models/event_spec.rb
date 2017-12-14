@@ -59,9 +59,9 @@ RSpec.describe Event, type: :model do
     describe "association with category" do
       let(:event) { create :event }
 
-      let!(:category1) { create :category, name: "Travel", events: [event] }
-      let!(:category2) { create :category, name: "Food and Drink", events: [event] }
-      let!(:category3) { create :category, name: "Running", events: [event] }
+      let(:category1) { create :category, name: "Travel", events: [event] }
+      let(:category2) { create :category, name: "Food and Drink", events: [event] }
+      let(:category3) { create :category, name: "Running", events: [event] }
 
       it "has categories" do
         expect(event.categories).to include(category1)
