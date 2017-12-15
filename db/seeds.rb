@@ -5,10 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Category.destroy_all
-User.destroy_all
+
 Photo.destroy_all
+Category.destroy_all
+Event.destroy_all
 Profile.destroy_all
+User.destroy_all
 
 food_and_drink = Category.create!(name: "Food and Drink")
 travel = Category.create!(name: "Travel")
@@ -136,3 +138,6 @@ photo10 = Photo.create!(remote_image_url: "http://res.cloudinary.com/dp99fz03x/i
 photo11 = Photo.create!(remote_image_url: "http://res.cloudinary.com/dp99fz03x/image/upload/v1513257568/PHX_foodtruck_jjbodi.jpg", event: event_1)
 
 photo12 = Photo.create!(remote_image_url: "http://res.cloudinary.com/dp99fz03x/image/upload/v1513257550/34_dou2rx.jpg", event: event_1)
+
+Registration.create!(event: event_1, user: robert, status: true, guests_count: 2)
+Registration.create!(event: event_3, user: miriam, status: false, guests_count: 3)
