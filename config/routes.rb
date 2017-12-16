@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   end
 
   get "about" => "pages#about"
+  get "contact" => "pages#contact"
 
 end

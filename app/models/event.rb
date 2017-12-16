@@ -18,6 +18,14 @@ class Event < ApplicationRecord
   validates_inclusion_of :includes_food, :in => [true, false]
   validates_inclusion_of :includes_drinks, :in => [true, false]
 
+  def ends_after_start
+    return if ends_at.blank? || starts_at.blank?
+
+    if ends_at < starts_at
+      errors.add(:ends_at, :invalid, message: "date must be after the start date")
+    end
+  end
+
   def bargain?
     price < 30
   end
@@ -26,16 +34,14 @@ class Event < ApplicationRecord
     order :price
   end
 
-  # def available?(capacity, guests_count)
-  #
-  # end
-
-  def ends_after_start
-    return if ends_at.blank? || starts_at.blank?
-
-    if ends_at < starts_at
-      errors.add(:ends_at, :invalid, message: "date must be after the start date")
+  def available?
+    registrations.each do |registration|
+      if set_status <= 0
+        return false
+      end
     end
+
+    true
   end
 
 end

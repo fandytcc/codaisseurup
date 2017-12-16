@@ -4,13 +4,40 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CodaisseurUP</title>
     <link href="/assets/css/bootstrap.min.css" media="all" rel="stylesheet"/>
+    <link rel="stylesheet" href="/assets/css/normalize.css">
+    <title>CodaisseurUP</title>
   </head>
 
   <body>
-    <h1>Your events</h1>
-    <p>Find me in app/views/pages/home.html.erb</p>
+    <section class="banner">
+      <img src="https://media.giphy.com/media/3o7TKokImU6DXy3NV6/giphy.gif" alt="meet-up background image" />
+      <h1>Your Events</h1>
+      <%= link_to "VIEW YOUR EVENTS", events_path, class: "btn btn-default" %>
+
+    </section>
+
+    <hr/>
+    <section class="events">
+      <h2>Upcoming Events</h2>
+
+    </section>
+
+    <hr/>
+    <section class="events">
+      <h2>Find an event</h2>
+
+    </section>
+
+    <hr/>
+    <section class="events">
+      <h2>Explore</h2>
+
+    </section>
+
+    <footer>
+      <p>&copy; 2018 CodaisseurUP</p>
+    </footer>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
