@@ -32,13 +32,13 @@ ActiveRecord::Schema.define(version: 20171215102652) do
     t.string "name"
     t.text "description"
     t.string "location"
-    t.decimal "price"
-    t.integer "capacity"
-    t.boolean "includes_food", null: false
-    t.boolean "includes_drinks", null: false
+    t.decimal "price", default: "0.0"
+    t.integer "capacity", default: 0
+    t.boolean "includes_food", default: false
+    t.boolean "includes_drinks", default: false
     t.datetime "starts_at"
     t.datetime "ends_at"
-    t.boolean "active"
+    t.boolean "active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20171215102652) do
     t.bigint "user_id"
     t.bigint "event_id"
     t.boolean "status"
-    t.integer "guests_count"
+    t.integer "guests_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_registrations_on_event_id"

@@ -3,16 +3,23 @@
     <%= @event.name %>
     <p><%= @event.description %></p>
   </div>
+  <hr/>
 
   <div class="panel-body">
+    <!-- Registration Form -->
+    <% if current_user != @event.user %>
+      <%= render 'registrations/form' %>
+    <% end %>
+    <hr/>
+
     <!-- Main info -->
     <p>Location: <%= @event.location %></p>
     <p>Host: <%= @event.user.email %></p>
-    <p>Starts at: <%= @event.starts_at.to_formatted_s(:rfc822) %> </p>
-    <p>Ends at: <%= @event.ends_at.to_formatted_s(:rfc822) %></p>
+    <p>Start date: <%= @event.starts_at.strftime("%A, %B %e, %Y") %></p> <p><%= @event.starts_at.strftime("%l:%M %p") %></p>
+    <p>End date: <%= @event.ends_at.strftime("%A, %B %e, %Y") %></p> <p><%= @event.ends_at.strftime("%l:%M %p") %></p>
     <br/>
 
-    <p>Price: <%= @event.price %> $ </p>
+    <p>Price: <%= @event.price %> <span>€</span> </p>
     <p>Capacity: <%= @event.capacity %> <%= @event.capacity > 1 ? "Guests" : "Guest" %></p>
     <br/>
 
@@ -23,8 +30,11 @@
       <li><%= !@event.includes_drinks ? ("<del>Drinks</del>").html_safe : "Drinks" %></li>
     </ul>
     <br/>
-    <p>Status: <%= @event.active %></p>
+
+    <!-- Status -->
+    <p>Status: <%= @event.active %> </p>
     <br/>
+
     <!-- Photos -->
     <h4>Photos</h4>
     <% @event.photos.each do |photo| %>
