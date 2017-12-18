@@ -16,4 +16,8 @@ Rails.application.routes.draw do
   get "about" => "pages#about"
   get "contact" => "pages#contact"
 
+  namespace :api do
+    resources :events
+  end
+
 end
